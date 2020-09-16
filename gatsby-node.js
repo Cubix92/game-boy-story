@@ -28,7 +28,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
 
     createPage({
         path: `/`,
-        component: require.resolve("./src/pages/home.js"),
+        component: require.resolve("./src/templates/home.js"),
         context: {
             limit: articlesPerPage,
             skip: 0,
@@ -40,7 +40,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
     Array.from({length: totalPages}).forEach((_, currentPage) => {
         createPage({
             path: `/${currentPage + 1}`,
-            component: require.resolve("./src/pages/home.js"),
+            component: require.resolve("./src/templates/home.js"),
             context: {
                 limit: articlesPerPage,
                 skip: currentPage * articlesPerPage,
@@ -53,7 +53,7 @@ exports.createPages = async ({actions, graphql, reporter}) => {
     result.data.allMarkdownRemark.edges.forEach(({node}) => {
         createPage({
             path: node.frontmatter.slug,
-            component: require.resolve(`./src/pages/article.js`),
+            component: require.resolve(`./src/templates/article.js`),
             context: {
                 slug: node.frontmatter.slug,
             },

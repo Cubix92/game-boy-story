@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Helmet from "react-helmet"
 
-export default function Index({data}) {
+export default function Article({data}) {
     const {markdownRemark} = data
     const {frontmatter, html} = markdownRemark
 
