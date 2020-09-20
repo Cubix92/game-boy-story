@@ -16,7 +16,7 @@ export default function Home({pageContext: { currentPage, totalPages }, data}) {
             <Helmet title="" defer={false} />
             {allMarkdownRemark.edges.map((article, index) => (
                 <section key={index}>
-                    <Link to={article.node.frontmatter.slug}>
+                    <Link to={"/" + article.node.frontmatter.slug}>
                         <img
                             src={"thumbnails/" + article.node.frontmatter.thumbnail}
                             alt={article.node.frontmatter.title}
